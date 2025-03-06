@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="744f802a-74f2-46d5-bddc-ad8c978c201d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/06_spring/chap04-bean-scope-lecture-source/src/main/java/com/ohgiraffers/section03/properties/subsection01/properties/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/06_spring/chap04-bean-scope-lecture-source/src/main/java/com/ohgiraffers/section03/properties/subsection01/properties/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06_spring/chap04-bean-scope-lecture-source/src/main/java/com/ohgiraffers/section03/properties/subsection01/properties/ContextConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/06_spring/chap04-bean-scope-lecture-source/src/main/java/com/ohgiraffers/section03/properties/subsection01/properties/ContextConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06_spring/chap04-bean-scope-lecture-source/src/main/resources/section03/properties/subsection01/properties/product-info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/06_spring/chap04-bean-scope-lecture-source/src/main/resources/section03/properties/subsection01/properties/product-info.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2tq3zzbF3JxLqxEn1Iy4hz9YQ6U" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jiwon/lecture",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="744f802a-74f2-46d5-bddc-ad8c978c201d" name="Changes" comment="" />
+      <created>1741066044052</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741066044052</updated>
+      <workItem from="1741066045097" duration="37000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
