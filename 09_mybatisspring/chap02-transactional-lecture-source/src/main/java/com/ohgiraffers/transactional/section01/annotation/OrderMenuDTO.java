@@ -2,14 +2,14 @@ package com.ohgiraffers.transactional.section01.annotation;
 
 public class OrderMenuDTO {
     private int menuCode;           // 고른 메뉴 번호
-    private int orderAmounr;        // 고른 메뉴 개수
+    private int orderAmount;        // 고른 메뉴 갯수
 
     public OrderMenuDTO() {
     }
 
-    public OrderMenuDTO(int menuCode, int orderAmounr) {
+    public OrderMenuDTO(int menuCode, int orderAmount) {
         this.menuCode = menuCode;
-        this.orderAmounr = orderAmounr;
+        this.orderAmount = orderAmount;
     }
 
     public int getMenuCode() {
@@ -20,19 +20,19 @@ public class OrderMenuDTO {
         this.menuCode = menuCode;
     }
 
-    public int getOrderAmounr() {
-        return orderAmounr;
+    public int getOrderAmount() {
+        return orderAmount;
     }
 
-    public void setOrderAmounr(int orderAmounr) {
-        this.orderAmounr = orderAmounr;
+    public void setOrderAmount(int orderAmount) {
+        this.orderAmount = orderAmount;
     }
 
     @Override
     public String toString() {
         return "OrderMenuDTO{" +
                 "menuCode=" + menuCode +
-                ", orderAmounr=" + orderAmounr +
+                ", orderAmount=" + orderAmount +
                 '}';
     }
 }

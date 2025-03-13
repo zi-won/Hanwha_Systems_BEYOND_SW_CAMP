@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class OrderServiceTest {
@@ -34,8 +33,10 @@ class OrderServiceTest {
 
         orderInfo.setOrderMenus(
                 List.of(
-                        new OrderMenuDTO(3, 10),
-                        new OrderMenuDTO(4, 10)
+                        new OrderMenuDTO(2, 1),
+                        new OrderMenuDTO(3, 2),
+                        new OrderMenuDTO(5, 3),
+                        new OrderMenuDTO(8, 4)
                 )
         );
 
@@ -47,7 +48,7 @@ class OrderServiceTest {
     @DisplayName("주문 등록 테스트")
     @ParameterizedTest
     @MethodSource("getOrderInfo")
-    void getOrderInfo(OrderDTO orderInfo) {
+    void testRegistNewOrder(OrderDTO orderInfo) {
         Assertions.assertDoesNotThrow(
                 () -> orderService.registNewOrder(orderInfo)
         );

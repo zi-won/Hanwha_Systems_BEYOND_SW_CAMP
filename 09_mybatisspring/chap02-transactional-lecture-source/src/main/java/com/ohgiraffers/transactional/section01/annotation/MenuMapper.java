@@ -7,5 +7,5 @@ import java.util.Map;
 
 @Mapper
 public interface MenuMapper {
-    List<Menu> selectMenuByMenuCode(Map<String, List<Integer>> map);
+    List<Menu> selectMenuByMenuCodes(Map<String, List<Integer>> map);
 }
