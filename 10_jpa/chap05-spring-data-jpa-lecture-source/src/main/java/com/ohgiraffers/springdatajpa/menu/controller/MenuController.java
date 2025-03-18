@@ -2,6 +2,7 @@ package com.ohgiraffers.springdatajpa.menu.controller;
 
 import com.ohgiraffers.springdatajpa.common.Pagination;
 import com.ohgiraffers.springdatajpa.common.PagingButtonInfo;
+import com.ohgiraffers.springdatajpa.menu.dto.CategoryDTO;
 import com.ohgiraffers.springdatajpa.menu.dto.MenuDTO;
 import com.ohgiraffers.springdatajpa.menu.service.MenuService;
 import lombok.extern.slf4j.Slf4j;
@@ -13,9 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -83,6 +82,8 @@ public class MenuController {
         log.debug("해당 페이지에 실제 요소 수: {}", menuList.getNumberOfElements());
         log.debug("Page의 number가 처음이면(첫 페이지면): {}", menuList.isFirst());
         log.debug("Page의 number가 마지막이면(마지막 페이지면): {}", menuList.isLast());
+        log.debug("현재 페이지: {}", menuList.getNumber());
+        log.debug("정렬 기준: {}", menuList.getSort());
 
         /* 설명. Page객체를 통해 PagingButtonInfo 추출 */
         PagingButtonInfo paging = Pagination.getPagingButtonInfo(menuList);
@@ -91,5 +92,57 @@ public class MenuController {
         model.addAttribute("paging", paging);
 
         return "menu/list";
+    }
+
+    @GetMapping("querymethod")
+    public void queryMethodPage() {}
+
+    @GetMapping("search")
+    public String findMenuPrice(@RequestParam int menuPrice, Model model) {
+        List<MenuDTO> menuList = menuService.findMenuPrice(menuPrice);
+
+        model.addAttribute("menuList", menuList);
+        model.addAttribute("menuPrice", menuPrice);
+
+        return "menu/searchResult";
+    }
+
+    @GetMapping("regist")
+    public void registMenuPage() {}
+
+    @GetMapping("category")
+    @ResponseBody
+    public List<CategoryDTO> findCategoryList() {
+        return menuService.findAllCategory();
+    }
+
+    @PostMapping("regist")
+    public String registMenu(MenuDTO newMenu) {
+//        log.debug("컨트롤러에서 커맨드 객체로 한번에 입력값 잘 받는지 확인: {}", newMenu);
+
+        menuService.registMenu(newMenu);
+
+        return "redirect:/menu/list";
+    }
+
+    @GetMapping("modify")
+    public void modifyMenuPage() {}
+
+    @PostMapping("modify")
+    public String modifyMenu(MenuDTO modifyMenu) {
+        menuService.modifyMenu(modifyMenu);
+
+        return "redirect:/menu/" + modifyMenu.getMenuCode();
+    }
+
+    @GetMapping("delete")
+    public void deleteMenuPage() {}
+
+    @PostMapping("delete")
+    public String deleteMenu(@RequestParam int menuCode) {
+
+        menuService.deleteMenu(menuCode);
+
+        return "redirect:/menu/list";
     }
 }
