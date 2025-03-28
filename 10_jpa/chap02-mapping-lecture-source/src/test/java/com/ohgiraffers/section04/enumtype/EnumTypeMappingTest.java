@@ -58,4 +58,4 @@ public class EnumTypeMappingTest {
         System.out.println("foundMember = " + foundMember);
         Assertions.assertEquals(member.getMemberNo(), foundMember.getMemberNo());
     }
-}
+}bee

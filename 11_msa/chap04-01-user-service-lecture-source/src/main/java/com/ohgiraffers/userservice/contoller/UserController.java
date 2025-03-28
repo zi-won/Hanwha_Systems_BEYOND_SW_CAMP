@@ -8,6 +8,7 @@ import com.ohgiraffers.userservice.vo.ResponseRegistUserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +43,7 @@ public class UserController {
         ResponseRegistUserVO successRegistUser = modelMapper.map(userDTO, ResponseRegistUserVO.class);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(successRegistUser);
+                             .body(successRegistUser);
     }
 
     @GetMapping("/users/{memNo}")
@@ -55,4 +56,8 @@ public class UserController {
                 .body(findUserVO);
     }
 
+    @GetMapping("/test")
+    public String test(@Value("${test.message}") String message) {
+        return message;
+    }
 }

@@ -68,12 +68,12 @@ public class JwtUtil {
             throw new RuntimeException("권한 정보가 없는 토큰입니다.");
         } else {                                // 권한이 있으면
             authorities =
-                    Arrays.stream(claims.get("auth").toString()
-                                    .replace("[", "")
-                                    .replace("]", "")
-                                    .split(", "))
-                            .map(role -> new SimpleGrantedAuthority(role))
-                            .collect(Collectors.toList());
+                Arrays.stream(claims.get("auth").toString()
+                        .replace("[", "")
+                        .replace("]", "")
+                        .split(", "))
+                        .map(role -> new SimpleGrantedAuthority(role))
+                        .collect(Collectors.toList());
         }
 
         return new UsernamePasswordAuthenticationToken(userDetails, "", authorities);

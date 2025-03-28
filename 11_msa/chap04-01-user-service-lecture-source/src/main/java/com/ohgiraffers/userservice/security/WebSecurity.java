@@ -48,15 +48,18 @@ public class WebSecurity{
 //                authz.requestMatchers(new AntPathRequestMatcher("/users/**")).permitAll()
 //                        .anyRequest().authenticated()
 
-                                authz.requestMatchers(new AntPathRequestMatcher("/users/**", "POST")).permitAll()
-                                        .requestMatchers(new AntPathRequestMatcher("/users/**", "GET")).hasRole("ENTERPRISE")
-                                        .anyRequest().authenticated()
-                )
-                .authenticationManager(authenticationManager())
-
-                /* 설명. Session을 쓰지 않고 Jwt토큰 방식으로 LocalThread에 저장하겠다는 설정 */
-                .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                authz.requestMatchers(new AntPathRequestMatcher("/health", "GET")).permitAll()
+                     .requestMatchers(new AntPathRequestMatcher("/users/**", "POST")).permitAll()
+                     .requestMatchers(new AntPathRequestMatcher("/test", "GET")).permitAll()
+                     .requestMatchers(new AntPathRequestMatcher("/actuator/**")).permitAll()
+                     .requestMatchers(new AntPathRequestMatcher("/users/**", "GET")).hasRole("ENTERPRISE")
+                        .anyRequest().authenticated()
+             )
+            .authenticationManager(authenticationManager())
+                
+            /* 설명. Session을 쓰지 않고 Jwt토큰 방식으로 LocalThread에 저장하겠다는 설정 */
+            .sessionManagement(session ->
+                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         http.addFilter(getAuthenticationFilter(authenticationManager()));
 

@@ -72,7 +72,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
             throws AuthenticationException {
 
         try {
-
+            
             /* 설명. request를 통해 넘어온 json(login 시 id/pwd)를 RequestLoginVO 옮겨 담기 */
             RequestLoginVO creds = new ObjectMapper().readValue(request.getInputStream(), RequestLoginVO.class);
 
@@ -101,8 +101,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
         List<String> roles = authResult.getAuthorities().stream()
 //                                       .map(role -> role.getAuthority())
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList());
+                                       .map(GrantedAuthority::getAuthority)
+                                       .collect(Collectors.toList());
         log.info("List<String> 형태로 뽑아낸 로그인 한 회원의 권한들: {}", roles);
         log.info("만료 시간: {}", env.getProperty("token.expiration_time"));
 
@@ -121,3 +121,16 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         response.addHeader("token", token);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
