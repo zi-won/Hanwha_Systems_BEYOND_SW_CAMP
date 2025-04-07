@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="step01">
+        <!-- 텍스트 보간법(머스태취 문법): 텍스트 노드(시작/종료태그 사이)에 동적인 값을 '추정'하여 삽입하는 구문 -->
+        <span>message: {{ msg }}</span>
+        <hr>
+        <div v-text="msg"></div>
+        <div v-text="'message: ' + msg">abc</div>
+        <div id="inJs"></div>
+    </div>
+    <script>
+
+        /* 순수 자바스크립트 선택자 개념으로도 가능 */
+        document.getElementById('inJs').innerText = 'message:' + 'abc';
+
+        /* Vue의 라이브러리를 활용해서 MVVM 패턴을 적용 */
+        const {createApp} = Vue;
+
+        createApp({
+            setup() {
+                return {
+                    msg: 'hello world!'
+                }
+            }
+        }).mount('#step01');
+    </script>
+</body>
+</html>
