@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <button @click="updateMessage">Update Message</button>
+    </div>
+    <script>
+        const {createApp, ref, nextTick} = Vue;
+
+        createApp({
+            setup() {
+                const message = ref('Hello, Vue!');
+
+                /* 하나의 함수 안에서 DOM update 및 update 이후 작업을 하고 싶을 때 */
+                async function updateMessage() {
+                    console.log('message 변화 전:', document.querySelector('h1').innerText);
+                    message.value = '안녕, 뷰!';
+
+                    /* 함수가 끝나기 전에 바뀐 데이터가 DOM에 update되게 하는 구문 */
+                    await nextTick();
+                    console.log('message 변화 후:', document.querySelector('h1').innerText);
+                }
+
+                return {
+                    message,
+                    updateMessage
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
