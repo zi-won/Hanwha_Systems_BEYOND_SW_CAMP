@@ -127,14 +127,14 @@
             });
 
             // return {loadingState:loadingState, isMounted:isMounted};
-            // return {loadingState, isMounted};            // 프로퍼티 값 단축(변수로 객체 쉽게 만들기)
+            // return {loadingState, isMounted};        // 프로퍼티 값 단축(변수로 객체 쉽게 만들기)
             return {...toRefs(state)};
         }
 
         createApp({
             setup() {
 
-                const {loadingState, isMounted} = useWines();   // 객체 구조 분해 할당
+                const {loadingState, isMounted} = useWines();   // 객체 구조분해 할당
 
                 return {
                     loadingState,
