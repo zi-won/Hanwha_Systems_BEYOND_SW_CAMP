@@ -8,8 +8,8 @@
 </template>
 
 <script setup>
-  import TestComp1 from './components/TestComp1.vue';
-  import TestComp2 from './components/TestComp2.vue';
+  import TestComp1 from './components/testComp1.vue';
+  import TestComp2 from './components/testComp2.vue';
 </script>
 
 <style scoped>
