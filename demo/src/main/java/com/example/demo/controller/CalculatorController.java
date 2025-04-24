@@ -1,7 +1,8 @@
-package com.ohgiraffers.bootproject.controller;
+package com.example.demo.controller;
 
-import com.ohgiraffers.bootproject.dto.CalculatorDTO;
-import com.ohgiraffers.bootproject.service.CalculatorService;
+
+import com.example.demo.dto.CalculatorDTO;
+import com.example.demo.service.CalculatorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class CalculatorController {
 
     @GetMapping("/health")
     public String healthCheck() {
-        return "I'm alive!!";
+        return "I'm alive!!123 good weather!";
     }
 
 //    @GetMapping("/plus")

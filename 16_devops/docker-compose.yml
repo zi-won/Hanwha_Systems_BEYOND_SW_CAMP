@@ -1,0 +1,39 @@
+## docker-compose를 사용하면 여러 개의 이미지 및 컨테이너를 다룰 수 있다.
+## 1. 로컬에 해당 이미지가 있는지 보고 있으면 로컬 이미지 활용
+## 2. 로컬에 이미지가 없으면 원격(docker hub)에 이미지가 있는지 보고 있으면 원격 이미지 활용
+## 3. 앞의 두 과정 모두에 해당하지 않으면 context에 있는 Dockerfile로 이미지를 만들어 활용
+
+## 컨테이너 실행: docker-compose up
+## 컨테이너 중지: docker-compose down
+
+services:
+  springboot-app:
+    build:
+      context: ./chap01_01_bootproject
+      dockerfile: Dockerfile
+
+    image: ziwon109/boot_14_project
+    container_name: boot-container
+    ports:
+      - "8055:7777"
+    networks:
+      - camp-net
+
+  vue-app:
+    build:
+      context: ./chap01_02_vueproject
+      dockerfile: Dockerfile
+    image: ziwon109/vue_14_project
+    container_name: vue-container
+    ports:
+      - "8011:5173"
+    networks:
+      - camp-net
+
+## 네트워크 드라이버 옵션
+## 1. bridge: 기본 값, 대부분의 경우에 적합하며 컨테이너간 사설 네트워크
+## 2. host: 호스트 네트워크를 직접 사용, 성능은 좋지만 보안에 취약, 포트가 겹칠 수도 있음
+## 3. none: 네트워크 기능 없음, 완전히 격리되는 환경
+networks:
+  camp-net:
+    driver: bridge
